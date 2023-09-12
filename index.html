@@ -1,51 +1,143 @@
 <!DOCTYPE html>
-<html>  
-  <link rel="shortcut icon" href="https://i.imgur.com/ewa2N7p.png" title="Favicon" >
-  <link type="text/css" id="dark-mode" rel="stylesheet" href="style.css">
+<html>
+  <link
+    rel="shortcut icon"
+    href="https://i.imgur.com/ewa2N7p.png"
+    title="Favicon"
+  />
+  <link
+    type="text/css"
+    id="dark-mode"
+    rel="stylesheet"
+    href="style.css"
+  />
   <style type="text/css" id="dark-mode-custom-style"></style>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>PEC HACKS</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin,latin-ext"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #222;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-image: url('c.jpeg');
+        width: 100%;
+	    height: calc(100vh - 70px);
+	
+	    background-size: cover;
+	    position: relative;
+        /* You can adjust this property to control how the image is displayed */
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+      }
+
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      .card {
+        background-color: #333;
+        color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+
+      button {
+        background-color: #ff9900;
+        color: #fff;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #ff6600;
+      }
+
+      #confettiContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+      }
+    </style>
   </head>
   <body>
-      <div class="main">
-        <div class="card">
-          <div class="header">
-            <h1>PEC HACKS</h1>
-          </div>
-          <div class="body">
-            <p>Click Here to Launch the website.</p>
-            <p>
-              <a id="back-link" href="https://pechacks.org" marked="1">
-               
-                PEC Hacks
-              </a>
-            </p>
-            <hr>
-            <p></p>
-            <h6></h6>
+    <div class="main">
+      <div class="card">
+        <div class="header">
+          <h1>PEC HACKS</h1>
+        </div>
+        <div class="body">
+          <p>Click Here to Launch the website.</p>
+          <p>
+            <a
+              id="back-link"
+              href="javascript:void(0);"
+              marked="1"
+              onclick="showConstructionMessageAndOpenLink()"
+            >
+              PEC Hacks
+            </a>
+          </p>
+          <hr />
+          <div id="constructionMessage" style="display: none;">
+            <p>Under Construction...</p>
           </div>
         </div>
       </div>
-      <script src="confetti.js"></script>
-      <script>
-        const start = () => {
-            setTimeout(function() {
-                confetti.start()
-            }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
-        };
+    </div>
+    <div id="confettiContainer"></div>
+    <script src="confetti.js"></script>
+    <script>
+      function showConstructionMessageAndOpenLink() {
+        document.getElementById("back-link").style.display = "none";
+        document.getElementById("constructionMessage").style.display =
+          "block";
+        setTimeout(openLink, 10000); // Delay opening the link for 10 seconds (adjust as needed)
+        startConfetti();
+      }
 
-        //  for stopping the confetti 
+      function openLink() {
+        window.location.href = "https://pechacks.org"; // Redirect to the desired page
+      }
 
-        const stop = () => {
-            setTimeout(function() {
-                confetti.stop()
-            }, 30000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
-        };
-        start();
-        stop();
-      </script>
-  </body>  
+      function startConfetti() {
+        confetti.start();
+        setTimeout(stopConfetti, 30000); // Stop confetti after 30 seconds (adjust as needed)
+      }
+
+      function stopConfetti() {
+        confetti.stop();
+      }
+    </script>
+  </body>
 </html>
