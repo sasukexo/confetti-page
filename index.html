@@ -105,7 +105,7 @@
               marked="1"
               onclick="showConstructionMessageAndOpenLink()"
             >
-              PEC Hacks
+              Launch
             </a>
           </p>
           <hr />
@@ -116,14 +116,58 @@
       </div>
     </div>
     <div id="confettiContainer"></div>
+
     <script src="confetti.js"></script>
+
+
     <script>
       function showConstructionMessageAndOpenLink() {
         document.getElementById("back-link").style.display = "none";
-        document.getElementById("constructionMessage").style.display =
-          "block";
-        setTimeout(openLink, 10000); // Delay opening the link for 10 seconds (adjust as needed)
-        startConfetti();
+        document.getElementById("constructionMessage").style.display ="block";
+
+        setTimeout(change_init, 1000);
+        setTimeout(compiling, 5000)
+        setTimeout(change_building, 10000);
+        setTimeout(change_deployed, 20000);
+
+
+        setTimeout(startConfetti, 21000);
+        
+        setTimeout(openLink, 30000); // Delay opening the link for 30 seconds
+        
+        
+      }
+
+      function change_init() {
+        document.getElementById("constructionMessage").innerHTML = "Initializing...";
+      }
+
+      function compiling() {
+        document.getElementById("constructionMessage").innerHTML = "Compiling Code...";
+      }
+
+      let dots = 0; // Initialize the number of dots
+
+      function change_building() {
+        // Add a dot to the text in "constructionMessage"
+        const messageElement = document.getElementById("constructionMessage");
+        messageElement.innerHTML = "Building" + ".".repeat(dots);
+        
+        // Increment the number of dots (up to a maximum of 3, for example)
+        if (dots < 5) {
+          dots++;
+        }
+        else{
+          // exit the function
+          return;
+        }
+
+        // Wait for 500 milliseconds and then call the function again
+        setTimeout(change_building, 500);
+      }
+
+      function change_deployed() {
+        document.getElementById("constructionMessage").innerHTML = "Deployed!";
       }
 
       function openLink() {
