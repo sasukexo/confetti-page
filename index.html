@@ -30,11 +30,15 @@
 
     <script src="confetti.js"></script>
     <script>
+
+      
+
       function showConstructionMessageAndOpenLink() {
         document.getElementById("back-link").style.display = "none";
         document.getElementById("short-msg").style.display = "none";
         document.getElementById("constructionMessage").style.display = "block";
-    
+        document.getElementById("dummy").style.display = "block";
+
         setTimeout(change_init, 0);
         setTimeout(compiling, 5000);
         setTimeout(change_building, 10000);
@@ -125,19 +129,19 @@
         </div>
         <div class="body">
           <p id="short-msg">Please click here to LAUNCH the website.</p>
+          <div id="dummy">
+            <div class="lds-hourglass" id="loader" ></div>
+            <div class="circle-loader">
+              <div class="checkmark draw"></div>
+            </div>
+          </div>
           <p>
             <button class="button-55" role="button" id="back-link" onclick="showConstructionMessageAndOpenLink()">Launch</button>
 
-            <!-- <a
-              id="back-link"
-              href="javascript:void(0);"
-              marked="1"
-              onclick="showConstructionMessageAndOpenLink()"
-            >
-              Launch
-            </a> -->
+            
           </p>
-          <hr />
+
+          
           <div id="constructionMessage" style="display: none;">
             <p>Initializing...</p>
           </div>
