@@ -2,7 +2,7 @@
 <html>
   <link
     rel="shortcut icon"
-    href="https://i.imgur.com/ewa2N7p.png"
+    href="pechacks.png"
     title="Favicon"
   />
   <link
@@ -106,6 +106,7 @@
     
       function change_deployed() {
         document.getElementById("constructionMessage").innerHTML = "Deployed!";
+        document.getElementById("dummy").style.display = "none";
       }
     
       function openLink() {
@@ -131,9 +132,7 @@
           <p id="short-msg">Please click here to LAUNCH the website.</p>
           <div id="dummy">
             <div class="lds-hourglass" id="loader" ></div>
-            <div class="circle-loader">
-              <div class="checkmark draw"></div>
-            </div>
+
           </div>
           <p>
             <button class="button-55" role="button" id="back-link" onclick="showConstructionMessageAndOpenLink()">Launch</button>
