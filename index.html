@@ -34,6 +34,11 @@
       
 
       function showConstructionMessageAndOpenLink() {
+        var snd = new Audio("song.mp3");
+        console.log("play");
+        snd.currentTime=1;
+        snd.play();
+        console.log("success");
         document.getElementById("back-link").style.display = "none";
         document.getElementById("short-msg").style.display = "none";
         document.getElementById("constructionMessage").style.display = "block";
