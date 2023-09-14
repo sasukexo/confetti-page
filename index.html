@@ -46,7 +46,7 @@
     
         setTimeout(startConfetti, 21000);
     
-        setTimeout(openLink, 30000); // Delay opening the link for 30 seconds
+        // setTimeout(openLink, 30000); // Delay opening the link for 30 seconds
       }
       let dots = 0; // Initialize the number of dots
     
@@ -107,6 +107,7 @@
       function change_deployed() {
         document.getElementById("constructionMessage").innerHTML = "Deployed!";
         document.getElementById("dummy").style.display = "none";
+        document.getElementById("start-count").style.display = "block";
       }
     
       function openLink() {
@@ -122,6 +123,8 @@
         confetti.stop();
       }
     </script>
+
+
     <div class="main">
       <div class="card">
         <div class="header">
@@ -134,16 +137,20 @@
             <div class="lds-hourglass" id="loader" ></div>
 
           </div>
+          <div id="constructionMessage" style="display: none;">
+            <p>Initializing...</p>
+          </div>
           <p>
             <button class="button-55" role="button" id="back-link" onclick="showConstructionMessageAndOpenLink()">Launch</button>
+          </p>
+          <p style="display: flex; justify-content: center;">
 
+            <button class="button-55" role="button" id="start-count" onclick="openLink()" style="display: none;">Start Countdown</button>
             
           </p>
 
           
-          <div id="constructionMessage" style="display: none;">
-            <p>Initializing...</p>
-          </div>
+          
         </div>
       </div>
     </div>
